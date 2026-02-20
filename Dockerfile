@@ -1,4 +1,4 @@
-FROM node:22
+FROM node:22-alpine
 
 
 WORKDIR /app
@@ -7,7 +7,7 @@ COPY package*.json .
 RUN npm ci
 
 
-COPY src/index.js index.js
+COPY . .
 EXPOSE 3000
 
-CMD ["node", "index.js"]
+CMD ["node", "src/index.js"]
